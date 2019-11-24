@@ -1,34 +1,46 @@
 <template>
-    <div class="searchWrapper">
-      <input id="search" name="search" v-model="searchValue" @input="handleInput"/>
-      <ul>
-        <li v-for="item in results" :key="item.data[0].nasa_id">
-          <p>{{ item.data[0].description }}</p>
-        </li>
-      </ul>
-    </div>
+      <input id="search" name="search" :value="value" @input="handleChange"/>
 </template>
 
 <script>
 // @ is an alias to /src
-
 export default {
   name: 'SearchInput',
-
+  props: {
+    value: {
+      type: String,
+      required: true,
+    },
+  },
+  methods: {
+    handleChange(e) {
+      this.$emit('input', e.target.value);
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-     .searchWrapper{
+  input{
             margin-top: 50px;
             display: flex;
             flex-direction: column;
             width: 250px;
-        input{
+            color: white;
+            text-align: center;
+            font-size: 18px;
+            font-weight: 300;
             height: 30px;
             border: 0;
-            border-bottom: 1px solid black;
+            border-bottom: 1px solid white;
             background: none;
+            transition: box-shadow .3s ease-out;
+            @media (min-width: 1024px) {
+            font-weight: 400;
+            }
                 }
-  }
+        input:focus{
+            outline: none;
+            box-shadow: 0 10px 20px -5px rgba(255,255,255, .5);
+        }
 </style>

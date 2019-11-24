@@ -12,6 +12,8 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,600,800&display=swap');
   *{
     box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   body{
     font-family: 'Montserrat', sans-serif;
@@ -20,6 +22,7 @@
   .nav a{
     margin-left: 10px;
     text-decoration: none;
-    color: grey;
+    color: black;
+    font-size: 18px;
   }
 </style>
