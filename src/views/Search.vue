@@ -48,6 +48,7 @@ export default {
       this.modalOpen = true;
       this.modalItem = item;
     },
+    // eslint-disable-next-line
     handleInput: debounce(function () {
       this.loading = true;
       axios.get(`${API}?q=${this.searchValue}&media_type=image`)
@@ -55,9 +56,6 @@ export default {
           this.results = (response.data.collection.items);
           this.loading = false;
           this.step = 1;
-        })
-        .catch((error) => {
-          console.log(error);
         });
     }, 500),
   },
